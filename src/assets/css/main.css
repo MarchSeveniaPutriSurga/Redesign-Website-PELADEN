@@ -2,15 +2,391 @@
   font-family: "Poppins", sans-serif;
 }
 
-:root{
-    --basic-color: #FFFFFF
-    --secondary-basic-color: #767676;
-    --primary-color-blue: #4A2D8B;
-    --primary-color-gold: #C49A6C;
-    --secondary-color-green: #2E8B57;
-    --secondary-color-red: #8B2E43;
-    --secondary-color-yellow: #DAA520;
-    --main-text-color: #252525;
-    --secondary-text-color: #4A4A4A;
-    --line-text-color: #767676;
+body {
+  font-size: 12px;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+}
+
+:root {
+  --basic-color: #ffffff;
+  --secondary-basic-color: #767676;
+  --primary-color-blue: #4a2d8b;
+  --primary-color-gold: #c49a6c;
+  --secondary-color-green: #2e8b57;
+  --secondary-color-red: #8b2e43;
+  --secondary-color-yellow: #daa520;
+  --main-text-color: #252525;
+  --secondary-text-color: #4a4a4a;
+  --line-text-color: #767676;
+}
+
+/* NAVBAR COMPONENT STYLE */
+.custom-navbar {
+  transition: all 0.3s ease;
+  background-color: transparent;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 9999;
+  padding: 10px 0;
+}
+
+.custom-navbar.scrolled {
+  background-color: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.brand-container {
+  padding: 0;
+}
+
+.logo-title-container {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.brand-logo {
+  height: 60px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: var(--main-text-color);
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-size: 0.8rem;
+  color: var(--main-text-color);
+  line-height: 1.2;
+}
+
+.nav-buttons-container {
+  display: flex;
+  align-items: center;
+}
+
+.nav-button {
+  background-color: #7952b3;
+  color: white !important;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding: 8px 15px !important;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.nav-icon {
+  margin-right: 8px;
+}
+
+.nav-button:hover {
+  background-color: var(--primary-color-blue);
+}
+
+@media (max-width: 991px) {
+  .nav-buttons-container {
+    margin-top: 15px;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .nav-button {
+    margin: 5px 0;
+    width: 100%;
+    text-align: left;
+    justify-content: flex-start;
+  }
+
+  .navbar-collapse {
+    padding: 10px 0;
+  }
+
+  .logo-title-container {
+    max-width: calc(100% - 50px);
+  }
+
+  .brand-logo {
+    height: 50px;
+    min-width: 50px;
+  }
+
+  .brand-title {
+    font-size: 1.2rem;
+  }
+
+  .brand-subtitle {
+    font-size: 0.7rem;
+    max-width: 300px;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 575px) {
+  .brand-subtitle {
+    font-size: 0.5rem;
+    max-width: 200px;
+    word-wrap: break-word;
+    white-space: normal;
+    overflow: hidden;
+  }
+
+  .brand-logo {
+    height: 50px;
+    min-width: 50px;
+  }
+
+  .brand-title {
+    font-size: 1rem;
+  }
+}
+
+.custom-navbar {
+  z-index: 1030;
+}
+
+/* HEADER COMPONENT STYLE */
+.peleden-header {
+  width: 100%;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.peleden-background {
+  background-repeat: repeat;
+  background-size: auto;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.peleden-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 15px 0px;
+}
+
+.peleden-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: var(--main-text-color);
+}
+
+.peleden-subtitle {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--main-text-color);
+  max-width: 700px;
+  margin: 0 auto 35px auto;
+}
+
+.peleden-search-container {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  bottom: -30px;
+  transform: translateX(-50%);
+  width: 700px;
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.peleden-search-input {
+  flex: 1;
+  padding: 15px 20px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+
+.peleden-search-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  background-color: #c15775;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.peleden-search-button:hover {
+  background-color: var(--secondary-color-red);
+}
+
+@media (max-width: 768px) {
+  .peleden-title {
+    font-size: 36px;
+  }
+
+  .peleden-subtitle {
+    font-size: 14px;
+    padding: 0 15px;
+  }
+
+  .peleden-search-container {
+    width: 80%;
+    bottom: -25px;
+  }
+
+  .peleden-search-input {
+    font-size: 10px;
+    padding: 12px 15px;
+  }
+}
+
+/* LAYANAN CARD COMPONENT STYLE */
+.layanan-list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(200px, 1fr)); /* 4 kolom */
+  gap: 24px; /* Jarak antar kartu */
+  padding: 100px; /* Padding yang sama di semua sisi */
+  margin: 0 auto; /* Biar tetap di tengah */
+  max-width: 1200px; /* Batas lebar maksimum */
+}
+
+.layanan-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%; /* Pastikan teks sejajar dengan ikon */
+}
+
+.layanan-content h3 {
+  color: var(--main-text-color);
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.layanan-content p {
+  color: var(--secondary-text-color);
+  font-size: 0.9rem;
+}
+
+.layanan-content h3,
+.layanan-content p {
+  margin: 0; /* Hapus margin default biar nggak ada jarak berlebih */
+  line-height: 1.2; /* Pastikan tinggi teks nggak terlalu besar */
+}
+
+.layanan-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 1px solid rgba(219, 219, 219, 0.767);
+  height: 90px;
+}
+
+.layanan-card:hover {
+  border: 1px solid #6a0dad;
+}
+
+.layanan-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #dcb182;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+}
+
+.layanan-card:hover .layanan-icon {
+  background-color: #7952b3;
+  transform: scale(1.2);
+}
+
+.icon {
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.layanan-card:hover .icon {
+  transform: rotate(360deg);
+}
+
+.layanan-card:not(:hover) .icon {
+  transform: rotate(-360deg);
+}
+
+@media (max-width: 768px) {
+  .layanan-list {
+    grid-template-columns: repeat(2, minmax(150px, 1fr));
+    max-width: 600px;
+    padding: 50px 10px;
+  }
+
+  .layanan-content h3 {
+    color: var(--main-text-color);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .layanan-content p {
+    color: var(--secondary-text-color);
+    font-size: 0.7rem;
+  }
+
+  .layanan-icon {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 480px) {
+  .layanan-list {
+    grid-template-columns: repeat(2, minmax(120px, 1fr)); /* Pastikan 2 kolom */
+    max-width: 400px;
+    padding: 50px 24px;
+  }
+
+  .layanan-card {
+    height: 60px;
+  }
+
+  .layanan-content h3 {
+    color: var(--main-text-color);
+    font-size: 0.7rem;
+    font-weight: 600;
+  }
+
+  .layanan-content p {
+    color: var(--secondary-text-color);
+    font-size: 0.6rem;
+  }
+
+  .layanan-icon {
+    width: 30px;
+    height: 30px;
+  }
 }
