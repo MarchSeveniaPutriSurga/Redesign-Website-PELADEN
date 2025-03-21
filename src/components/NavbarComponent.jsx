@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
-import { FaUserCircle, FaBook, FaDiscord, FaShieldAlt } from "react-icons/fa";
+import { LuBookMarked } from "react-icons/lu";
+import { RxDiscordLogo } from "react-icons/rx";
+import { IoBookOutline } from "react-icons/io5";
+import { AiOutlineLogin } from "react-icons/ai";
 
 const NavbarComponent = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -50,19 +53,19 @@ const NavbarComponent = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto nav-buttons-container">
             <Nav.Link href="#kebijakan" className="nav-button">
-              <FaShieldAlt className="nav-icon" />
+              <IoBookOutline size={18} className="nav-icon" />
               <span>Kebijakan Layanan</span>
             </Nav.Link>
             <Nav.Link href="#manual" className="nav-button">
-              <FaBook className="nav-icon" />
+              <LuBookMarked size={18} className="nav-icon" />
               <span>Manual</span>
             </Nav.Link>
             <Nav.Link href="#discord" className="nav-button">
-              <FaDiscord className="nav-icon" />
+              <RxDiscordLogo size={18} className="nav-icon" />
               <span>Discord</span>
             </Nav.Link>
             <Nav.Link href="#login" className="nav-button">
-              <FaUserCircle className="nav-icon" />
+              <AiOutlineLogin size={18} className="nav-icon" />
               <span>Login</span>
             </Nav.Link>
           </Nav>
