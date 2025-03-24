@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< Updated upstream
 import { FaSearch } from "react-icons/fa";
 
 const Header = () => {
@@ -32,3 +33,11 @@ const Header = () => {
 };
 
 export default Header;
+=======
+
+const HeaderComponent = () => {
+  return <div>HeaderComponent</div>;
+};
+
+export default HeaderComponent;
+>>>>>>> Stashed changes

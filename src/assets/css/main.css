@@ -2,6 +2,7 @@
   font-family: "Poppins", sans-serif;
 }
 
+<<<<<<< Updated upstream
 body {
   font-size: 12px;
   margin: 0;
@@ -396,4 +397,36 @@ body {
     width: 30px;
     height: 30px;
   }
+=======
+:root{
+    --basic-color: #FFFFFF
+    --secondary-basic-color: #767676;
+    --primary-color-blue: #4A2D8B;
+    --primary-color-gold: #C49A6C;
+    --secondary-color-green: #2E8B57;
+    --secondary-color-red: #8B2E43;
+    --secondary-color-yellow: #DAA520;
+    --main-text-color: #252525;
+    --secondary-text-color: #4A4A4A;
+    --line-text-color: #767676;
+}
+
+footer {
+  border-top: 3px solid #ddd;
+}
+
+footer h5 {
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+
+footer ul {
+  padding-left: 0;
+}
+
+footer ul li {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 4px;
+>>>>>>> Stashed changes
 }
