@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React, { useState, useEffect } from "react";
 import {
   IoDocumentTextOutline,
@@ -116,3 +117,12 @@ const LayananList = () => {
 };
 
 export default LayananList;
+=======
+import React from "react";
+const LayananCardComponent = () => {
+
+    return <div>LayananComponent</div>;
+};
+
+export default LayananCardComponent;
+>>>>>>> Stashed changes
