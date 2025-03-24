@@ -1,5 +1,5 @@
-<<<<<<< Updated upstream
 import React, { useState, useEffect } from "react";
+
 import {
   IoDocumentTextOutline,
   IoCloudDownloadOutline,
@@ -84,6 +84,15 @@ const LayananCard = ({ icon, title }) => {
 };
 
 const LayananList = () => {
+  useEffect(() => {
+    if (window.AOS) {
+      window.AOS.init({
+        duration: 1000,
+        once: true,
+      });
+    }
+  }, []);
+
   const layananData = [
     { icon: "file", title: "Rekomendasi" },
     { icon: "network", title: "Subdomain" },
@@ -108,7 +117,7 @@ const LayananList = () => {
   ];
 
   return (
-    <div className="layanan-list">
+    <div className="layanan-list" data-aos="fade-up">
       {layananData.map((layanan, index) => (
         <LayananCard key={index} icon={layanan.icon} title={layanan.title} />
       ))}
@@ -117,12 +126,3 @@ const LayananList = () => {
 };
 
 export default LayananList;
-=======
-import React from "react";
-const LayananCardComponent = () => {
-
-    return <div>LayananComponent</div>;
-};
-
-export default LayananCardComponent;
->>>>>>> Stashed changes
