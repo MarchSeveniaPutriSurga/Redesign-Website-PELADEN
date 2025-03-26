@@ -11,7 +11,7 @@ const Header = () => {
         <div className="peladen-container">
           <h1 className="peladen-title">PELADEN</h1>
           <p className="peladen-subtitle">
-            Akses semua layanan publik Pemerintah Daerah Istimewa Yogyakarta
+            Akses semua layanan publik Diskominfo Daerah Istimewa Yogyakarta
             dalam satu portal terintegrasi untuk kemudahan masyarakat
           </p>
         </div>
