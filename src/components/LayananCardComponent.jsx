@@ -20,7 +20,7 @@ import {
 } from "react-icons/ai";
 import { BsPassport, BsShieldLock } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
-import { IoMdGlobe, IoMdArrowForward } from "react-icons/io";
+import { IoMdGlobe } from "react-icons/io";
 import { GoDeviceCameraVideo } from "react-icons/go";
 import { VscRadioTower } from "react-icons/vsc";
 import { RiMovie2AiLine } from "react-icons/ri";
@@ -48,16 +48,16 @@ const icons = {
   movie: RiMovie2AiLine,
 };
 
-const LayananCard = ({ icon, title }) => {
-  const IconComponent = icons[icon] || FaFileAlt;
-  const [iconSize, setIconSize] = useState(25);
+const LayananCard = ({ icon, title, onCardClick }) => {
+  const IconComponent = icons[icon];
+  const [iconSize, setIconSize] = useState(30);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 480) {
-        setIconSize(18);
+        setIconSize(20);
       } else {
-        setIconSize(25);
+        setIconSize(30);
       }
     };
 
@@ -67,23 +67,42 @@ const LayananCard = ({ icon, title }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const handleClick = () => {
+    const layananId = title.toLowerCase().replace(/\s+/g, "-");
+    onCardClick(layananId);
+
+    //scroll ke section
+    setTimeout(() => {
+      const detailSection = document.getElementById(layananId);
+      const navbar = document.querySelector(".custom-navbar");
+
+      if (detailSection && navbar) {
+        const navbarHeight = navbar.offsetHeight;
+        const elementPosition =
+          detailSection.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - navbarHeight - 20;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 100);
+  };
+
   return (
-    <div className="layanan-card">
-      <div className="layanan-icon">
-        <IconComponent size={iconSize} className="icon" />
-      </div>
+    <div className="layanan-card" onClick={handleClick}>
       <div className="layanan-content">
+        <div className="layanan-icon">
+          <IconComponent size={iconSize} className="icon" />
+        </div>
         <h3>{title}</h3>
-        <p>
-          Detail &nbsp;
-          <IoMdArrowForward size={14} />
-        </p>
       </div>
     </div>
   );
 };
 
-const LayananList = () => {
+const LayananList = ({ onLayananSelect }) => {
   useEffect(() => {
     if (window.AOS) {
       window.AOS.init({
@@ -103,7 +122,7 @@ const LayananList = () => {
     { icon: "passport", title: "SPLP" },
     { icon: "information", title: "Informasi Eksekutif" },
     { icon: "searchFile", title: "PPID" },
-    { icon: "phone", title: "Sandi dan Telepon" }, //kurang keamanan informasi, jaringan internet, konten multimedia
+    { icon: "phone", title: "Sandi dan Telepon" },
     { icon: "privasi", title: "Keamanan Informasi" },
     { icon: "signal", title: "Jaringan Internet" },
     { icon: "movie", title: "Konten Multimedia" },
@@ -119,7 +138,12 @@ const LayananList = () => {
   return (
     <div className="layanan-list" data-aos="fade-up">
       {layananData.map((layanan, index) => (
-        <LayananCard key={index} icon={layanan.icon} title={layanan.title} />
+        <LayananCard
+          key={index}
+          icon={layanan.icon}
+          title={layanan.title}
+          onCardClick={onLayananSelect || (() => {})}
+        />
       ))}
     </div>
   );
