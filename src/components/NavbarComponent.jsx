@@ -64,8 +64,8 @@ const NavbarComponent = () => {
               <RxDiscordLogo size={18} className="nav-icon" />
               <span>Discord</span>
             </Nav.Link>
-            <Nav.Link href="#login" className="nav-button">
-              <AiOutlineLogin size={18} className="nav-icon" />
+            <Nav.Link href="/login" className="nav-button">
+            <AiOutlineLogin size={18} className="nav-icon" />
               <span>Login</span>
             </Nav.Link>
           </Nav>
