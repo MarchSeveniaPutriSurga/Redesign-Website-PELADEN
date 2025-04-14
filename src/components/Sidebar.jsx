@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { FaCog, FaBars, FaTimes } from "react-icons/fa";
+import { FaTimes } from "react-icons/fa";
 import { RiDashboard2Line } from "react-icons/ri";
 import { TbRouteSquare } from "react-icons/tb";
 import { useLocation } from "react-router-dom";
+import { PiHandshake } from "react-icons/pi";
+import { HiOutlineDocumentText } from "react-icons/hi";
+import { AiOutlineAppstoreAdd } from "react-icons/ai";
+import { LuBookMarked } from "react-icons/lu";
 
 const Sidebar = ({ dimmed, isOpen, onToggle }) => {
   const location = useLocation();
@@ -129,24 +133,91 @@ const Sidebar = ({ dimmed, isOpen, onToggle }) => {
             </li>
             <li
               className={`peladen-sidebar-menu-item ${
-                activeMenu === "/setting"
+                activeMenu === "/layanan"
                   ? "peladen-sidebar-menu-item-active"
                   : ""
               }`}
             >
               <a
-                href="/setting"
+                href="/layanan"
                 className="peladen-sidebar-menu-link"
-                onClick={() => handleMenuClick("/setting")}
+                onClick={() => handleMenuClick("/layanan")}
               >
-                <FaCog
+                <PiHandshake
+                  size={21}
                   className={`peladen-sidebar-menu-icon ${
-                    activeMenu === "/setting"
+                    activeMenu === "/layanan"
                       ? "peladen-sidebar-menu-icon-active"
                       : ""
                   }`}
                 />
-                <span className="menu-item-text">Setting</span>
+                <span className="menu-item-text">Layanan</span>
+              </a>
+            </li>
+            <li
+              className={`peladen-sidebar-menu-item ${
+                activeMenu === "/uat" ? "peladen-sidebar-menu-item-active" : ""
+              }`}
+            >
+              <a
+                href="/uat"
+                className="peladen-sidebar-menu-link"
+                onClick={() => handleMenuClick("/uat")}
+              >
+                <HiOutlineDocumentText
+                  size={21}
+                  className={`peladen-sidebar-menu-icon ${
+                    activeMenu === "/uat"
+                      ? "peladen-sidebar-menu-icon-active"
+                      : ""
+                  }`}
+                />
+                <span className="menu-item-text">UAT</span>
+              </a>
+            </li>
+            <li
+              className={`peladen-sidebar-menu-item ${
+                activeMenu === "/aplikasi"
+                  ? "peladen-sidebar-menu-item-active"
+                  : ""
+              }`}
+            >
+              <a
+                href="/aplikasi"
+                className="peladen-sidebar-menu-link"
+                onClick={() => handleMenuClick("/aplikasi")}
+              >
+                <AiOutlineAppstoreAdd
+                  size={21}
+                  className={`peladen-sidebar-menu-icon ${
+                    activeMenu === "/aplikasi"
+                      ? "peladen-sidebar-menu-icon-active"
+                      : ""
+                  }`}
+                />
+                <span className="menu-item-text">Aplikasi</span>
+              </a>
+            </li>
+            <li
+              className={`peladen-sidebar-menu-item ${
+                activeMenu === "/manual"
+                  ? "peladen-sidebar-menu-item-active"
+                  : ""
+              }`}
+            >
+              <a
+                href="/manual"
+                className="peladen-sidebar-menu-link"
+                onClick={() => handleMenuClick("/manual")}
+              >
+                <LuBookMarked
+                  className={`peladen-sidebar-menu-icon ${
+                    activeMenu === "/manual"
+                      ? "peladen-sidebar-menu-icon-active"
+                      : ""
+                  }`}
+                />
+                <span className="menu-item-text">Manual</span>
               </a>
             </li>
           </ul>
