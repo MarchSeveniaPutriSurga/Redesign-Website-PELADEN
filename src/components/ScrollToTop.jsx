@@ -30,7 +30,7 @@ const ScrollToTop = () => {
         right: "20px",
         width: "50px",
         height: "50px",
-        backgroundColor: "#7952b3",
+        backgroundColor: "#e63946",
         color: "white",
         border: "3px solid white",
         borderRadius: "50%",

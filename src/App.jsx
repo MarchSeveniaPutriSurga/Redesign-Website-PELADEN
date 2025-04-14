@@ -4,10 +4,12 @@ import FooterComponent from "./components/FooterComponent";
 import HomePage from "./pages/HomePage";
 import ScrollToTop from "./components/ScrollToTop";
 import LoginPage from "./pages/LoginPage";
+import Dashboard from "./pages/private/Dashboard";
 
 function App() {
   const location = useLocation();
-  const hideNavFooter = location.pathname === "/login"; // Cek apakah halaman login
+  const hideNavFooter =
+    location.pathname === "/login" || location.pathname === "/dashboard"; // Cek apakah halaman login
 
   return (
     <>
@@ -15,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       {!hideNavFooter && <FooterComponent />}
       <ScrollToTop />

@@ -12,14 +12,19 @@ body {
 :root {
   --basic-color: #ffffff;
   --secondary-basic-color: #767676;
-  --primary-color-blue: #4a2d8b;
+  --primary-color: #cc2d3a;
+  --secondary-color: #d99864;
+  --secondary-hover: #e63946;
+  --border-hover: #e639479a;
   --primary-color-gold: #c49a6c;
   --secondary-color-green: #2e8b57;
-  --secondary-color-red: #8b2e43;
+  --color-red: #eb5a3c;
+  --color-red-hover: #cc2d3a;
   --secondary-color-yellow: #daa520;
   --main-text-color: #252525;
   --secondary-text-color: #4a4a4a;
   --line-text-color: #767676;
+  --color-search: #c35256;
 }
 
 /* NAVBAR COMPONENT STYLE */
@@ -83,7 +88,7 @@ body {
 }
 
 .nav-button {
-  background-color: #7952b3;
+  background-color: var(--secondary-hover);
   color: white !important;
   border-radius: 5px;
   margin-left: 10px;
@@ -98,7 +103,7 @@ body {
 }
 
 .nav-button:hover {
-  background-color: var(--primary-color-blue);
+  background-color: var(--primary-color);
 }
 
 @media (max-width: 991px) {
@@ -233,14 +238,14 @@ body {
   align-items: center;
   justify-content: center;
   width: 60px;
-  background-color: #c15775;
+  background-color: var(--color-search);
   border: none;
   color: white;
   cursor: pointer;
 }
 
 .peladen-search-button:hover {
-  background-color: var(--secondary-color-red);
+  background-color: var(--color-red-hover);
 }
 
 @media (max-width: 768px) {
@@ -303,17 +308,17 @@ body {
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: #dcb182;
+  background-color: var(--secondary-color);
   transition: all 0.3s ease;
   margin-bottom: 12px;
 }
 
 .layanan-card:hover {
-  border: 1px solid #7952b377;
+  border: 1px solid var(--border-hover);
 }
 
 .layanan-card:hover .layanan-icon {
-  background-color: #7952b3;
+  background-color: var(--secondary-hover);
   transform: scale(1.1);
 }
 
@@ -528,12 +533,12 @@ p {
 .register-link {
   margin-top: 15px;
   font-size: 0.9rem;
-  color: #000; 
+  color: #000;
 }
 
 .register-link a {
   text-decoration: none;
-  color: #7952b3; 
+  color: #7952b3;
 }
 
 .register-link a:hover {

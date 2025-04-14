@@ -5,6 +5,7 @@ import App from "./App.jsx";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/main.css";
+import "./assets/css/privateArea.css";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
