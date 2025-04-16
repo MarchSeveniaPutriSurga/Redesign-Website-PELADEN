@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom"; // Tambahkan import ini
 import Sidebar from "../../components/Sidebar";
 import Header from "../../components/Header";
 import { FiNavigation, FiGlobe } from "react-icons/fi";
 
 const Dashboard = () => {
+  const navigate = useNavigate(); // Tambahkan hook useNavigate
   const [searchModalOpen, setSearchModalOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(window.innerWidth > 768);
   const [headerDimmed, setHeaderDimmed] = useState(false);
@@ -43,6 +45,11 @@ const Dashboard = () => {
     }
 
     return `linear-gradient(135deg, ${baseColor}, ${baseColor}dd)`;
+  };
+
+  // Navigaet ke halaman /tracking
+  const handleCardClick = () => {
+    navigate("/tracking");
   };
 
   // data for cards with React icons
@@ -158,14 +165,18 @@ const Dashboard = () => {
         <div className="dashboard-header-spacer"></div>
         <h1 className="dashboard-title">Dashboard</h1>
 
-        {/* Cards Container */}
+        {/* Cards Container - Modifikasi bagian ini */}
         <div className="dashboard-cards-scroll">
           <div className="dashboard-cards-container">
             {cardData.map((card) => (
               <div
                 key={card.id}
                 className="dashboard-card"
-                style={{ backgroundColor: card.color }}
+                style={{
+                  backgroundColor: card.color,
+                  cursor: "pointer", // Tambahkan cursor pointer untuk indikasi bisa diklik
+                }}
+                onClick={handleCardClick} // Tambahkan event handler
               >
                 <div className="dashboard-card-content">
                   <div

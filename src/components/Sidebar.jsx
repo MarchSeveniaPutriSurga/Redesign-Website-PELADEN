@@ -13,6 +13,14 @@ const Sidebar = ({ dimmed, isOpen, onToggle }) => {
   const [activeMenu, setActiveMenu] = useState(location.pathname);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
+  // Function to determine active menu based on path
+  const getActiveMenu = (path) => {
+    if (path.startsWith("/dashboard/layanan")) {
+      return "/dashboard/layanan";
+    }
+    return path;
+  };
+
   useEffect(() => {
     const handleResize = () => {
       const mobile = window.innerWidth < 768;
@@ -27,6 +35,10 @@ const Sidebar = ({ dimmed, isOpen, onToggle }) => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, [isOpen, onToggle]);
+
+  useEffect(() => {
+    setActiveMenu(getActiveMenu(location.pathname));
+  }, [location.pathname]);
 
   const handleMenuClick = (menu) => {
     setActiveMenu(menu);
@@ -133,20 +145,20 @@ const Sidebar = ({ dimmed, isOpen, onToggle }) => {
             </li>
             <li
               className={`peladen-sidebar-menu-item ${
-                activeMenu === "/layanan"
+                activeMenu.startsWith("/dashboard/layanan")
                   ? "peladen-sidebar-menu-item-active"
                   : ""
               }`}
             >
               <a
-                href="/layanan"
+                href="/dashboard/layanan"
                 className="peladen-sidebar-menu-link"
-                onClick={() => handleMenuClick("/layanan")}
+                onClick={() => handleMenuClick("/dashboard/layanan")}
               >
                 <PiHandshake
                   size={21}
                   className={`peladen-sidebar-menu-icon ${
-                    activeMenu === "/layanan"
+                    activeMenu.startsWith("/dashboard/layanan")
                       ? "peladen-sidebar-menu-icon-active"
                       : ""
                   }`}
@@ -196,28 +208,6 @@ const Sidebar = ({ dimmed, isOpen, onToggle }) => {
                   }`}
                 />
                 <span className="menu-item-text">Aplikasi</span>
-              </a>
-            </li>
-            <li
-              className={`peladen-sidebar-menu-item ${
-                activeMenu === "/manual"
-                  ? "peladen-sidebar-menu-item-active"
-                  : ""
-              }`}
-            >
-              <a
-                href="/manual"
-                className="peladen-sidebar-menu-link"
-                onClick={() => handleMenuClick("/manual")}
-              >
-                <LuBookMarked
-                  className={`peladen-sidebar-menu-icon ${
-                    activeMenu === "/manual"
-                      ? "peladen-sidebar-menu-icon-active"
-                      : ""
-                  }`}
-                />
-                <span className="menu-item-text">Manual</span>
               </a>
             </li>
           </ul>

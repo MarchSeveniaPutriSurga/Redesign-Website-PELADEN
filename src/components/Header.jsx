@@ -167,7 +167,7 @@ const Header = ({ onSearchToggle, onSidebarToggle, dimmed }) => {
       <div className="header-profile" ref={dropdownRef}>
         <button className="header-profile-btn" onClick={toggleProfileDropdown}>
           <div className="avatar-container">
-            <img src="ava1.jpg" alt="User" className="avatar-img" />
+            <img src="/ava1.jpg" alt="User" className="avatar-img" />
           </div>
         </button>
 

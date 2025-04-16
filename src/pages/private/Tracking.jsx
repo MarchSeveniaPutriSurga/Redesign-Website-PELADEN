@@ -1,7 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Sidebar from "../../components/Sidebar";
 import Header from "../../components/Header";
-import { FiSearch, FiPlus, FiChevronLeft, FiChevronRight, FiChevronsLeft, FiChevronsRight, FiMoreVertical } from "react-icons/fi";
+import {
+  FiSearch,
+  FiPlus,
+  FiChevronLeft,
+  FiChevronRight,
+  FiChevronsLeft,
+  FiChevronsRight,
+  FiMoreVertical,
+} from "react-icons/fi";
 
 const Tracking = () => {
   const [searchModalOpen, setSearchModalOpen] = useState(false);
@@ -29,15 +38,44 @@ const Tracking = () => {
 
   // Data layanan untuk tabel
   const layananData = [
-    { id: 1, tipe: "Aduan", keterangan: "test", requestor: "dinas_komunikasi_dan...", status: "Draft", createdAt: "2024-11-20" },
-    { id: 2, tipe: "Aduan", keterangan: "testing", requestor: "dinas_komunikasi_dan...", status: "Draft", createdAt: "2024-10-21" },
-    { id: 3, tipe: "Aduan", keterangan: "Anik", requestor: "dinas_komunikasi_dan...", status: "Draft", createdAt: "2023-12-11" },
+    {
+      id: 1,
+      tipe: "Aduan",
+      keterangan: "test",
+      requestor: "dinas_komunikasi_dan...",
+      status: "Draft",
+      createdAt: "2024-11-20",
+    },
+    {
+      id: 2,
+      tipe: "Aduan",
+      keterangan: "testing",
+      requestor: "dinas_komunikasi_dan...",
+      status: "Draft",
+      createdAt: "2024-10-21",
+    },
+    {
+      id: 3,
+      tipe: "Aduan",
+      keterangan: "Anik",
+      requestor: "dinas_komunikasi_dan...",
+      status: "Draft",
+      createdAt: "2023-12-11",
+    },
   ];
 
   // Data keterangan status
   const statusData = [
-    { status: "Open", description: "Data permohonan sudah terkirim", color: "#E8F5E9" },
-    { status: "Activated", description: "Permohonan telah diaktivasi", color: "#E8F5E9" },
+    {
+      status: "Open",
+      description: "Data permohonan sudah terkirim",
+      color: "#E8F5E9",
+    },
+    {
+      status: "Activated",
+      description: "Permohonan telah diaktivasi",
+      color: "#E8F5E9",
+    },
   ];
 
   const totalPages = Math.ceil(layananData.length / rowsPerPage);
@@ -95,29 +133,31 @@ const Tracking = () => {
 
       <div className="dashboard-content">
         <div className="dashboard-header-spacer"></div>
-        
         {/* Header dan Tombol Tambah */}
         <div className="tracking-header">
           <h1 className="tracking-title">Tracking Layanan</h1>
-          <button className="tambah-layanan-btn" onClick={handleAddLayanan}>
+          <Link
+            to="/dashboard/layanan"
+            className="tambah-layanan-btn"
+            style={{ textDecoration: "none" }}
+          >
             <FiPlus /> Tambah Layanan
-          </button>
+          </Link>
         </div>
-        
-            {/* Search Bar */}
+
+        {/* Search Bar */}
         <div className="search-container">
-        <div className="search-input-wrapper">
+          <div className="search-input-wrapper">
             <FiSearch className="search-icon" />
             <input
-            type="text"
-            className="search-input"
-            placeholder="Cari layanan (tekan enter)..."
-            value={searchQuery}
-            onChange={handleSearch}
+              type="text"
+              className="search-input"
+              placeholder="Cari layanan (tekan enter)..."
+              value={searchQuery}
+              onChange={handleSearch}
             />
+          </div>
         </div>
-        </div>
-        
         {/* Tabel Layanan */}
         <div className="layanan-table-container">
           <table className="layanan-table">
@@ -143,7 +183,9 @@ const Tracking = () => {
                   <td>{item.keterangan}</td>
                   <td>{item.requestor}</td>
                   <td>
-                    <span className={`status-badge ${item.status.toLowerCase()}`}>
+                    <span
+                      className={`status-badge ${item.status.toLowerCase()}`}
+                    >
                       {item.status}
                     </span>
                   </td>
@@ -158,43 +200,67 @@ const Tracking = () => {
             </tbody>
           </table>
         </div>
-        
         {/* Pagination */}
         <div className="pagination-container">
           <div className="pagination-controls">
-            <button className="pagination-button" onClick={handleFirstPage} disabled={currentPage === 1}>
+            <button
+              className="pagination-button"
+              onClick={handleFirstPage}
+              disabled={currentPage === 1}
+            >
               <FiChevronsLeft />
             </button>
-            <button className="pagination-button" onClick={handlePrevPage} disabled={currentPage === 1}>
+            <button
+              className="pagination-button"
+              onClick={handlePrevPage}
+              disabled={currentPage === 1}
+            >
               <FiChevronLeft />
             </button>
             <div className="pagination-pages">
               <span>{currentPage}</span>
             </div>
-            <button className="pagination-button" onClick={handleNextPage} disabled={currentPage === totalPages}>
+            <button
+              className="pagination-button"
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages}
+            >
               <FiChevronRight />
             </button>
-            <button className="pagination-button" onClick={handleLastPage} disabled={currentPage === totalPages}>
+            <button
+              className="pagination-button"
+              onClick={handleLastPage}
+              disabled={currentPage === totalPages}
+            >
               <FiChevronsRight />
             </button>
           </div>
 
           <div className="pagination-info">
             <span>Rows per page: </span>
-            <select value={rowsPerPage} onChange={handleRowsPerPageChange} className="rows-select">
+            <select
+              value={rowsPerPage}
+              onChange={handleRowsPerPageChange}
+              className="rows-select"
+            >
               <option value={10}>10</option>
               <option value={25}>25</option>
               <option value={50}>50</option>
             </select>
-            <span>{`${startIndex + 1}–${endIndex} of ${layananData.length}`}</span>
+            <span>{`${startIndex + 1}–${endIndex} of ${
+              layananData.length
+            }`}</span>
           </div>
         </div>
-        
         {/* Keterangan Status */}
         <div className="status-info-container">
           <h3 className="status-info-title">Keterangan</h3>
           {statusData.map((item, index) => (
-            <div key={index} className="status-info-row" style={{ backgroundColor: item.color }}>
+            <div
+              key={index}
+              className="status-info-row"
+              style={{ backgroundColor: item.color }}
+            >
               <div className="status-info-label">{item.status}</div>
               <div className="status-info-desc">{item.description}</div>
             </div>
